@@ -1,1 +1,5 @@
- 
+# PDFs of package source files automatically created by editors should not be versioned
+# gallery and manual PDFs should go into version control
+*/src/**/*.pdf
+# ignore the dist directory, as a default place to put the output of ./scripts/package
+dist/
