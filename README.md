@@ -18,10 +18,10 @@ Required for all packages in general are
 The packaging tool is a little more opinionated and requires
 
 - `src/`: containing the entry point and other typst files
+- `docs/`: containing the documentation, particularly `manual.typ` (using [`tidy`](https://github.com/Mc-Zen/tidy))
 - `gallery/`: for examples (that can at the same time serve as manual tests)
-- `manual.typ`: the main documentation; the template uses [`tidy`](https://github.com/Mc-Zen/tidy) to generate this from the typst source
 
-Note that even the gallery is _required_, and that the packaging tool actually also needs a `manual.pdf`.
+Note that even docs and the gallery are _required_.
 
 When creating a new package by copying the template, at least the following should be checked/adapted:
 
@@ -31,10 +31,9 @@ When creating a new package by copying the template, at least the following shou
 	- add keywords
 - `typst.toml`, `LICENSE`: check if the license suits your needs
 - `README.md`: change the title, add description
-- `manual.typ`:
-	- change the title and description
-	- in the line `scope: (template: lib),` replace `template` with your package's name.
-		This is the name under which your library will be imported in documentation comments.
+- `docs/manual.typ`:
+	- change the title, abstract, and introduction
+	- in the lines `label-prefix: "template.",` and `scope: (template: lib),` replace `template` with your package's name. These define how you can reference functions in the manual and use the module in documentation comments.
 
 ## Building packages
 

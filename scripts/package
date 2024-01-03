@@ -10,9 +10,8 @@ files=(
   README.md
   LICENSE
   src/
+  docs/
   gallery/
-  manual.typ
-  manual.pdf
 )
 
 # Local package directories per platform

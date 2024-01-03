@@ -14,7 +14,7 @@ install package:
 #   ./scripts/test update "{{package}}"
 
 manual package:
-  typst c "{{package}}/manual.typ" "{{package}}/manual.pdf"
+  typst c --root "{{package}}" "{{package}}/docs/manual.typ" "{{package}}/docs/manual.pdf"
 
 gallery package:
   for f in "{{package}}/gallery"/*.typ; do typst c --root "{{package}}" "$f"; done
