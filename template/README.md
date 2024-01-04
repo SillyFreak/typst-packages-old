@@ -1,3 +1,3 @@
 # Typst package
 
-See the [manual](manual.pdf) for details.
+See the [manual](docs/manual.pdf) for details.
