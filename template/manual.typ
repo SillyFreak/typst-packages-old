@@ -2,6 +2,9 @@
 
 #import "src/lib.typ"
 
+// make the PDF reproducible to ease version control
+#set document(date: none)
+
 = Template
 
 This is a template for typst packages.
