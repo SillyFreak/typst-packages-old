@@ -1,0 +1,17 @@
+[package]
+name = "tidy-types"
+version = "0.0.1"
+entrypoint = "src/lib.typ"
+authors = [
+  "Clemens Koza <https://github.com/SillyFreak/>"
+]
+license = "MIT"
+description = "Helpers for writing complex types in tidy documentation"
+repository = "https://github.com/SillyFreak/typst-packages/tidy-types"
+keywords = ["documentation", "tidy"]
+# compiler = ""
+exclude = [
+  # docs and gallery are not needed in the final package
+  "docs/*",
+  "gallery/*",
+]
