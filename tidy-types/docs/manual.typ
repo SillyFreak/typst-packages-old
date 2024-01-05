@@ -125,7 +125,7 @@ TODO: some types are missing, update to current typst version
 
 = Module reference
 
-== `template`
+== `tidy-types`
 
 #{
     let module = tidy.parse-module(
