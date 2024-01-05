@@ -41,7 +41,13 @@
 
 = Introduction <intro>
 
-This package contains helpers for documenting the types of values with tidy, just as tidy itself shows them in function signatures. To do so, it produces raw blocks with language #raw(repr(tt.lang)), which can be then styled using a show rule as follows:
+This package contains helpers for documenting the types of values with tidy, just as tidy itself shows them in function signatures. For example, this lets you write documentation such as this:
+
+#pad(x: 5%)[
+  The result of ```typc range(5).enumerate()``` is a #tt.arr(tt.tuple(tt.integer, tt.integer)).
+]
+
+To do so, it produces raw blocks with language #raw(repr(tt.lang)), which can be then styled using a show rule as follows:
 
 ```typ
 #import "@preview/tidy:0.2.0"
