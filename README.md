@@ -4,7 +4,7 @@ A monorepo of my packages, in the beginning for sure mostly unpublished. Search 
 
 This repo contains a few package authoring facilities which are heavily inspired by and based on those of [CeTZ](https://github.com/johannes-wolf/cetz). There is a [package template](./template) utilizing these (based on the [example package](https://github.com/typst/packages/tree/main/packages/preview/example)), and this README will eventually document the most important aspects. Even more fundamental package authoring concepts are documented in the [official Typst package repo](https://github.com/typst/packages).
 
-CeTZ resources (`Justfile` and `scripts/*`) are licensed under the Apache License 2.0, the rest under the MIT LICENSE. Packages contain their own licenses. Feel free to clone this repo or its contents to start your own typst package monorepo. You will want to pretty much immediately change the template's author and repository metadata.
+CeTZ resources (`Justfile` and `scripts/*`) are licensed under the Apache License 2.0, the rest under the MIT license. Packages contain their own licenses. Feel free to clone this repo or its contents to start your own typst package monorepo. You will want to pretty much immediately change the template's author and repository metadata.
 
 ## Package structure
 
