@@ -113,6 +113,8 @@ There are constants for all the built-in types that Typst provides. Note how two
   )
 }
 
+TODO: some types are missing, update to current typst version
+
 #pagebreak(weak: true)
 
 = Module reference
