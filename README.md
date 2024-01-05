@@ -33,7 +33,7 @@ When creating a new package by copying the template, at least the following shou
 - `README.md`: change the title, add description
 - `docs/manual.typ`:
 	- change the title, abstract, and introduction
-	- in the lines `label-prefix: "template.",` and `scope: (template: lib),` replace `template` with your package's name. These define how you can reference functions in the manual and use the module in documentation comments.
+	- in the lines `#let scope = (template: lib)` and `label-prefix: "template.",` replace `template` with your package's name. These define how you can use the module in documentation comments and reference functions in the manual.
 
 ## Building packages
 
