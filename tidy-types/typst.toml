@@ -7,7 +7,7 @@ authors = [
 ]
 license = "MIT"
 description = "Helpers for writing complex types in tidy documentation"
-repository = "https://github.com/SillyFreak/typst-packages/tidy-types"
+repository = "https://github.com/SillyFreak/typst-packages/tree/main/tidy-types"
 keywords = ["documentation", "tidy"]
 # compiler = ""
 exclude = [

@@ -7,7 +7,7 @@ authors = [
 ]
 license = "MIT"
 description = "template package"
-repository = "https://github.com/SillyFreak/typst-packages/template"
+repository = "https://github.com/SillyFreak/typst-packages/tree/main/template"
 keywords = []
 # compiler = ""
 exclude = [
