@@ -160,3 +160,31 @@
   )
   [`(`#params.join(`,`)`)`#sym.arrow.r#result]
 }
+
+/// A function for rendering a choice between the given types:
+///
+/// #example(`tt.either(tt.str, tt.int)`)
+///
+/// - ..options (content): the possible types given as positional parameters
+/// -> content
+#let either(..options) = {
+  if options.named().len() != 0 {
+    panic("tidy-types.either() takes only positional parameters")
+  }
+  let options = options.pos()
+  [#options.join(`|`)]
+}
+
+/// A function for rendering a parameter/element that may be omitted
+///
+/// #example(```
+/// tt.optional(tt.str)
+/// parbreak()
+/// tt.func(tt.optional(tt.str), tt.str)
+/// ```)
+///
+/// - type (content): the tuple element types given as positional parameters
+/// -> content
+#let optional(type) = {
+  [#type`?`]
+}
