@@ -210,3 +210,15 @@
 #let optional(type) = {
   [#type`?`]
 }
+
+/// Surrounds a type with parentheses for grouping
+///
+/// #example(```
+/// tt.group(tt.str)
+/// ```)
+///
+/// - type (content): the type to delimit using parentheses
+/// -> content
+#let group(type) = {
+  [`(`#type`)`]
+}
