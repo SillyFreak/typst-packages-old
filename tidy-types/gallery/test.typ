@@ -11,4 +11,4 @@
 
 = Test
 
-#tt.arr(tt.integer)
+#tt.arr(tt.int)

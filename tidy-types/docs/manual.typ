@@ -44,7 +44,7 @@
 This package contains helpers for documenting the types of values with tidy, just as tidy itself shows them in function signatures. For example, this lets you write documentation such as this:
 
 #pad(x: 5%)[
-  The result of ```typc range(5).enumerate()``` is a #tt.arr(tt.tuple(tt.integer, tt.integer)).
+  The result of ```typc range(5).enumerate()``` is a #tt.arr(tt.tuple(tt.int, tt.int)).
 ]
 
 To do so, it produces raw blocks with language #raw(repr(tt.lang)), which can be then styled using a show rule as follows:
@@ -83,32 +83,45 @@ This can be more easily written using the basic function of this package, #ref-f
 
 = Built-in Typst types
 
-There are constants for all the built-in types that Typst provides. Note how two of them are prefixed with `"t-"` as their names are keywords -- ```typc none``` and ```typc auto```:
+There are constants for all the built-in types that Typst provides. Note how two of them are prefixed with `"t-"` as their names are keywords -- ```typc none``` and ```typc auto``` -- and another because its name is taken by a tidy types function -- ```typc type```:
 
 #{
   let type-names = (
     "t-none",
-    "t-auto",
-    "boolean",
-    "integer",
+    "bool",
+    "int",
     "float",
-    "length",
-    "angle",
-    "ratio",
-    "relative-length",
-    "fraction",
-    "color",
-    "datetime",
-    "symbol",
+    "str",
     "bytes",
-    "string",
-    "content",
     "array",
     "dictionary",
+    "t-type",
     "function",
-    "arguments",
+
+    "t-auto",
+    "datetime",
+    "duration",
+    "regex",
+    "version",
+    "content",
+    "symbol",
+
+    "length",
+    "ratio",
+    "relative",
+    "fraction",
+    "angle",
+    "color",
+    "stroke",
+    "alignment",
+
+    "location",
+    "styles",
+    "label",
     "selector",
     "module",
+    "plugin",
+    "arguments",
   )
 
   table(
@@ -117,9 +130,9 @@ There are constants for all the built-in types that Typst provides. Note how two
       (raw(name, lang: "typc"), eval("tt." + name, scope: (tt: tt)))
     }).flatten()
   )
-}
 
-TODO: some types are missing, update to current typst version
+  // [TODO: some types are missing, update to current typst version]
+}
 
 #pagebreak(weak: true)
 
