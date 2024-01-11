@@ -92,7 +92,7 @@
 ///
 /// - element (content): the element type of the array
 /// -> content
-#let arr(element) = [`(..`#element`)`]
+#let arr(element) = [`(`#element`,` ...`)`]
 
 /// A function for rendering a dictionary type including element type information:
 ///
@@ -104,7 +104,7 @@
 ///
 /// - value (content): the value type of the dictionary
 /// -> content
-#let dict(value) = [`(`#str`:`#value`)`]
+#let dict(value) = [`(`#str`:`#value`,` ...`)`]
 
 /// A function for rendering an array type containing exactly the given elements:
 ///
