@@ -81,6 +81,16 @@
 #let plugin     = _builtin_type(type: plugin,  /* value: plugin("...") */)
 #let arguments  = _builtin_type(type: arguments,  value: ((..args) => args)())
 
+/// This is not a real type, but it can be used as the last parameter in @@func() to indicate that
+/// the function uses an argument sink to take additional positional or named parameters:
+///
+/// #example(```
+/// tt.func(tt.int, tt.sink, tt.int)
+/// ```)
+///
+/// -> content
+#let sink = [ ...]
+
 /// A function for rendering an array type including element type information:
 ///
 /// #example(`tt.arr(tt.int)`)
@@ -92,7 +102,7 @@
 ///
 /// - element (content): the element type of the array
 /// -> content
-#let arr(element) = [`(`#element`,` ...`)`]
+#let arr(element) = [`(`#element`,`#sink`)`]
 
 /// A function for rendering a dictionary type including element type information:
 ///
@@ -104,7 +114,7 @@
 ///
 /// - value (content): the value type of the dictionary
 /// -> content
-#let dict(value) = [`(`#str`:`#value`,` ...`)`]
+#let dict(value) = [`(`#str`:`#value`,`#sink`)`]
 
 /// A function for rendering an array type containing exactly the given elements:
 ///
@@ -137,14 +147,19 @@
 
 /// A function for rendering a function type taking the given parameters and having the given return type:
 ///
-///
 /// #example(```
 /// tt.func(
 ///   tt.str, opt: tt.bool,
 ///   tt.int)
 /// ```)
 ///
-/// Note that the relative order of positional and named parameters is not preserved; all named parameters come after all positional parameters. It makes sense to, as a convention, put the result type after any named parameters.
+/// Note that the relative order of positional and named parameters is not preserved; all named parameters come after all positional parameters. It makes sense to, as a convention, put the result type after any named parameters. There is one exception to this rule though: if the last positional parameter is @@sink, it will be put after any named arguments:
+///
+/// #example(```
+/// tt.func(
+///   tt.str, opt: tt.bool, tt.sink,
+///   tt.int)
+/// ```)
 ///
 /// The name of this function is `func` because `tt.function` (#tt.function) exists already.
 ///
@@ -154,9 +169,16 @@
   let positional-params = args.pos()
   let result = positional-params.pop()
   let named-params = args.named()
+  let with-sink = if positional-params.last() == sink {
+    let _ = positional-params.pop()
+    true
+  } else {
+    false
+  }
   let params = (
     ..positional-params,
     ..named-params.pairs().map(((name, type)) => [#raw(name)`:`#type]),
+    ..if with-sink { (sink,) }
   )
   [`(`#params.join(`,`)`)`#sym.arrow.r#result]
 }
