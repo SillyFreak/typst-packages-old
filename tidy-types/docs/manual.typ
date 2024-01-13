@@ -126,9 +126,9 @@ There are constants for all the built-in types that Typst provides. Note how two
 
   table(
     columns: (1fr,)*6,
-    ..type-names.map(name => {
+    ..for name in type-names {
       (raw(name, lang: "typc"), eval("tt." + name, scope: (tt: tt)))
-    }).flatten()
+    }
   )
 
   // [TODO: some types are missing, update to current typst version]
