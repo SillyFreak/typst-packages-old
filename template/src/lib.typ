@@ -1,5 +1,8 @@
 /// Adds two numbers.
-/// Example: $1 + 2 = #template.add(1, 2)$
+///
+/// #example(mode: "markup", ```
+/// $1 + 2 = #template.add(1, 2)$
+/// ```)
 ///
 /// - x (number): the first summand
 /// - y (number): the second summand
@@ -7,7 +10,10 @@
 #let add(x, y) = x + y
 
 /// Subtracts the second number from the first.
-/// Example: $1 - 2 = #template.sub(1, 2)$
+///
+/// #example(mode: "markup", ```
+/// $1 - 2 = #template.sub(1, 2)$
+/// ```)
 ///
 /// - x (number): the minuend
 /// - y (number): the subtrahend
@@ -15,7 +21,10 @@
 #let sub(x, y) = x - y
 
 /// Multiplies two numbers.
-/// Example: $1 dot.c 2 = #template.mul(1, 2)$
+///
+/// #example(mode: "markup", ```
+/// $1 dot.c 2 = #template.mul(1, 2)$
+/// ```)
 ///
 /// - x (number): the first factor
 /// - y (number): the second factor
@@ -23,7 +32,10 @@
 #let mul(x, y) = x * y
 
 /// Divides the first number by the second.
-/// Example: $1 div 2 = #template.div(1, 2)$
+///
+/// #example(mode: "markup", ```
+/// $1 div 2 = #template.div(1, 2)$
+/// ```)
 ///
 /// - x (number): the dividend
 /// - y (number): the divisor
