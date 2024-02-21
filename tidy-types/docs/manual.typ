@@ -8,9 +8,6 @@
 #let date = none
 // #let date = datetime(year: ..., month: ..., day: ...)
 
-// make the PDF reproducible to ease version control
-#set document(date: date)
-
 #show: project.with(
   title: "Tidy Types",
   // subtitle: "...",
@@ -19,20 +16,13 @@
     Helpers for writing complex types in tidy documentation and
     rendering types like tidy outside of tidy-generated signatures.
   ],
-  ..if date != none {
-    (date: date.display("[month repr:long] [day], [year]"))
-  },
+  url: package-meta.repository,
   version: package-meta.version,
-  url: package-meta.repository
+  date: date,
 )
-
-#pad(x: 10%, outline(depth: 1))
-#pagebreak()
 
 // the scope for evaluating expressions and documentation
 #let scope = (tt: tt)
-
-#let ref-fn(name) = link(label(name), raw(name))
 
 #set table(stroke: 0.5pt)
 
@@ -141,14 +131,14 @@ There are constants for all the built-in types that Typst provides. Note how two
 == `tidy-types`
 
 #{
-    let module = tidy.parse-module(
-      read("../src/lib.typ"),
-      label-prefix: "tt.",
-      scope: scope,
-    )
-    tidy.show-module(
-      module,
-      sort-functions: none,
-      style: tidy.styles.minimal,
-    )
+  let module = tidy.parse-module(
+    read("../src/lib.typ"),
+    label-prefix: "tt.",
+    scope: scope,
+  )
+  tidy.show-module(
+    module,
+    sort-functions: none,
+    style: tidy.styles.minimal,
+  )
 }
