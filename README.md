@@ -52,10 +52,15 @@ You can install your package locally to use it or perform some final tests:
 
 ```
 just install template
+just install-preview template
 ```
 
-Finally pack it up for publishing, e.g. into a directory named `dist`:
+If you use `install`, the package can be imported as `@local/<package>:<version>`; when using `install-preview`, it can be imported as `@preview/<package>:<version>` instead: **Note** that even after publishing, the version so installed takes precedence over the published version. **TODO** provide a script to uninstall preview packages.
+
+Finally pack it up for publishing, e.g. into a local clone of the typst package registry:
 
 ```
-just package template dist
+just package template ../typst-package-registry/packages/preview
 ```
+
+... and then create a pull request!

@@ -27,11 +27,12 @@ if (( $# < 2 )) || [[ "${1:-}" == "help" ]]; then
   echo "package PACKAGE TARGET"
   echo ""
   echo "Packages all relevant files into a directory named '<PACKAGE>/<version>'"
-  echo "at TARGET. If TARGET is set to @local, the local Typst package directory"
-  echo "will be used so that the package gets installed for local use."
+  echo "at TARGET. If TARGET is set to @local or @preview, the local Typst package"
+  echo "directory will be used so that the package gets installed for local use."
   echo "The version is read from 'typst.toml' in the project root."
   echo ""
   echo "Local package prefix: $DATA_DIR/typst/package/local"
+  echo "Local preview package prefix: $DATA_DIR/typst/package/preview"
   exit 1
 fi
 
@@ -50,6 +51,11 @@ VERSION="$(read-toml "$SOURCE/typst.toml" "version")"
 
 if [[ "$TARGET" == "@local" ]] || [[ "$TARGET" == "install" ]]; then
   TARGET="${DATA_DIR}/typst/packages/local/"
+  echo "Install dir: $TARGET"
+fi
+
+if [[ "$TARGET" == "@preview" ]]; then
+  TARGET="${DATA_DIR}/typst/packages/preview/"
   echo "Install dir: $TARGET"
 fi
 

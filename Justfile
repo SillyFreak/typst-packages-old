@@ -7,6 +7,9 @@ package package target:
 install package:
   ./scripts/package "{{package}}" "@local"
 
+install-preview package:
+  ./scripts/package "{{package}}" "@preview"
+
 # test package:
 #   ./scripts/test test "{{package}}"
 
