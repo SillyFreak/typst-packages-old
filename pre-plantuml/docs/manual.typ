@@ -25,13 +25,11 @@
 
 = Introduction
 
-This is a template for typst packages. It provides, for example, the #ref-fn("add()") function:
+This package provides two #link("https://typst.app/universe/package/prequery")[prequeries] for using PlantUML in Typst:
+- #ref-fn("plantuml-url()") provides the encoded diagram URL to preprocessors for downloading the diagram file;
+- #ref-fn("plantuml-source()") provides the diagram source code to preprocessors for generating the diagram image locally.
 
-#{
-  let lines = read("../gallery/test.typ").trim().split("\n")
-  lines = lines.slice(4)
-  raw(block: true, lang: "typ", lines.join("\n"))
-}
+See the Prequery library documentation for more general information on how this can be used.
 
 = Module reference
 

@@ -1,9 +1,25 @@
 // make the PDF reproducible to ease version control
 #set document(date: none)
 
-#import "../src/lib.typ": encode
-// #import "@preview/pre-plantuml:0.0.1": encode
+#import "../src/lib.typ": plantuml-url, plantuml-source
+#import "@preview/prequery:0.1.0"
+// #import "@preview/pre-plantuml:0.0.1": plantuml-url, plantuml-source
+
+// toggle this comment or pass `--input prequery-fallback=true` to enable fallback
+// #prequery.fallback.update(true)
+
+#let plantuml = plantuml-url.with("https://www.plantuml.com/plantuml/png/")
 
 = Test
 
-#("https://www.plantuml.com/plantuml/uml/" + encode("@startuml\nPUML -> RUST: HELLO\n@enduml"))
+#plantuml("assets/uml.png", ```
+@startuml
+PUML -> RUST: HELLO
+@enduml
+```)
+
+#plantuml-source("assets/uml.png", ```
+@startuml
+PUML -> RUST: HELLO
+@enduml
+```)
