@@ -2,7 +2,7 @@
 
 #import "template.typ": *
 
-#import "../src/lib.typ"
+#import "../src/lib.typ" as template
 
 #let package-meta = toml("../typst.toml").package
 #let date = none
@@ -21,11 +21,17 @@
 )
 
 // the scope for evaluating expressions and documentation
-#let scope = (template: lib)
+#let scope = (template: template)
 
 = Introduction
 
-This is a template for typst packages. It provides, for example, the #ref-fn("template.add()") function.
+This is a template for typst packages. It provides, for example, the #ref-fn("template.add()") function:
+
+#{
+  let lines = read("../gallery/test.typ").trim().split("\n")
+  lines = lines.slice(4)
+  raw(block: true, lang: "typ", lines.join("\n"))
+}
 
 = Module reference
 
