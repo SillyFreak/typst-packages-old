@@ -3,3 +3,5 @@
 */src/**/*.pdf
 # ignore the dist directory, as a default place to put the output of ./scripts/package
 dist/
+# for plugins written in Rust
+target/

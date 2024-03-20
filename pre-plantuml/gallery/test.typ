@@ -1,9 +1,9 @@
 // make the PDF reproducible to ease version control
 #set document(date: none)
 
-#import "../src/lib.typ": add
-// #import "@preview/pre-plantuml:0.0.1": add
+#import "../src/lib.typ": encode
+// #import "@preview/pre-plantuml:0.0.1": encode
 
 = Test
 
-#add(2, 7)
+#("https://www.plantuml.com/plantuml/uml/" + encode("@startuml\nPUML -> RUST: HELLO\n@enduml"))
