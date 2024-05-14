@@ -11,8 +11,9 @@
 }
 
 /// A prequery for PlantUML diagrams. Apart from the `base-url` and trailing `source` parameter, the
-/// image file name is also mandatory; it is part of `args` for technical reasons. Rendering fails
-/// (outside fallback mode) before images have been downloaded in a preprocessing step.
+/// image file name is also mandatory; it is part of `args` for technical reasons. Outside fallback
+/// mode, rendering this fails when the rendered diagram file is missing; diagrams need to be
+/// rendered in a preprocessing step.
 ///
 /// This function provides a dictionary with `url` and `path` as metadata under the label
 /// `<web-resource>`. The URL is formed by adding the
@@ -42,8 +43,9 @@
 
 
 /// A prequery for PlantUML diagrams. Apart from the trailing `source` parameter, the image file
-/// name is also mandatory; it is part of `args` for technical reasons. Rendering fails (outside
-/// fallback mode) before images have been generated in a preprocessing step.
+/// name is also mandatory; it is part of `args` for technical reasons. Outside fallback mode,
+/// rendering this fails when the rendered diagram file is missing; diagrams need to be rendered in
+/// a preprocessing step.
 ///
 /// This function provides a dictionary with `source` and `path` as metadata under the label
 /// `<plantuml>`. The sources are strings that can be given to the
